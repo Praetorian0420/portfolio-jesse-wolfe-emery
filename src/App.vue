@@ -1,194 +1,18 @@
-<script setup>
-const plannedPages = ['Home', 'About', 'Projects', 'Contact']
-
-const palette = [
-  { name: 'Ink', value: '#182a2b', className: 'ink' },
-  { name: 'Parchment', value: '#f5f2eb', className: 'parchment' },
-  { name: 'Moss', value: '#87977b', className: 'moss' },
-  { name: 'Clay', value: '#d77d5d', className: 'clay' },
-]
-</script>
-
 <template>
   <div class="site-shell portfolio-home">
     <header class="portfolio-header">
-      <a class="portfolio-wordmark" href="#home" aria-label="Jesse Wolfe-Emery home">
+      <RouterLink class="portfolio-wordmark" to="/" aria-label="Jesse Wolfe-Emery home">
         <span class="portfolio-monogram">JW</span>
         <span>Jesse Wolfe-Emery</span>
-      </a>
+      </RouterLink>
       <nav class="portfolio-nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#direction">Career goals</a>
-        <a href="#design">Site plan</a>
-        <a class="nav-contact" href="#contact">Contact</a>
+        <RouterLink to="/" exact-active-class="is-active">Home</RouterLink>
+        <RouterLink to="/about" active-class="is-active">About</RouterLink>
+        <RouterLink to="/portfolio" active-class="is-active">Portfolio</RouterLink>
       </nav>
     </header>
 
-    <main>
-      <section id="home" class="portfolio-hero">
-        <div class="portfolio-hero-inner">
-          <div class="portfolio-hero-copy">
-            <p class="portfolio-eyebrow"><span></span> Future software developer · Nebraska</p>
-            <h1>Hi, I’m<br /><span>Jesse Wolfe-Emery.</span></h1>
-            <p class="portfolio-role">Aspiring Software Developer</p>
-            <p class="portfolio-lede">
-              I’m building my skills to create useful, reliable software. I enjoy solving problems,
-              learning how things work, and designing thoughtful experiences for the people who use
-              them.
-            </p>
-            <div class="portfolio-actions">
-              <a class="portfolio-button" href="#about"
-                >Get to know me <span aria-hidden="true">↓</span></a
-              >
-              <a class="portfolio-secondary-link" href="#direction"
-                >My career goals <span aria-hidden="true">↗</span></a
-              >
-            </div>
-          </div>
-          <figure class="portfolio-portrait">
-            <img src="/Jesse.jpg" alt="Professional portrait of Jesse Wolfe-Emery" />
-            <figcaption>
-              <span>Jesse Wolfe-Emery</span><span>Future software developer</span>
-            </figcaption>
-          </figure>
-          <div class="hero-side-note" aria-hidden="true">LEARN · BUILD · GROW</div>
-        </div>
-      </section>
-
-      <section id="about" class="about-section">
-        <div class="portfolio-container about-layout">
-          <div class="section-label"><span>01</span> About me</div>
-          <div class="about-copy">
-            <h2>Curiosity is where good work begins.</h2>
-            <p>
-              I’m studying software development and working toward a career building useful,
-              dependable software. I’m drawn to the mix of logic and creativity: understanding a
-              problem, shaping a solution, and making sure it works well for real people.
-            </p>
-            <p>
-              I’m at the beginning of my journey, focused on learning the fundamentals, practicing
-              consistently, and growing with each project.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="direction" class="goals-section portfolio-container">
-        <div class="section-label"><span>02</span> Looking ahead</div>
-        <div class="goals-heading">
-          <div>
-            <h2>My future in software development.</h2>
-            <p>
-              My goal is to become a thoughtful developer who makes software that is useful,
-              accessible, and dependable.
-            </p>
-          </div>
-          <span class="goals-mark" aria-hidden="true">✳</span>
-        </div>
-        <div class="goals-grid">
-          <article class="goal-card">
-            <span class="goal-number">01 / LEARN</span>
-            <h3>Build strong fundamentals</h3>
-            <p>
-              Keep developing my programming skills and learning the tools behind good software.
-            </p>
-          </article>
-          <article class="goal-card">
-            <span class="goal-number">02 / CREATE</span>
-            <h3>Put people first</h3>
-            <p>Make software easier to understand, more accessible, and enjoyable to use.</p>
-          </article>
-          <article class="goal-card">
-            <span class="goal-number">03 / GROW</span>
-            <h3>Improve with practice</h3>
-            <p>Build, ask questions, learn from feedback, and keep getting better over time.</p>
-          </article>
-          <article class="goal-card">
-            <span class="goal-number">04 / CONNECT</span>
-            <h3>Collaborate effectively</h3>
-            <p>
-              Work well with others, share knowledge, and contribute to a positive team environment.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="design" class="site-plan-section">
-        <div class="portfolio-container">
-          <div class="section-label"><span>03</span> Design plan</div>
-          <div class="site-plan-heading">
-            <h2>A simple plan for the portfolio.</h2>
-            <p>
-              The homepage introduces me today. These design elements show how the portfolio can
-              grow over the semester.
-            </p>
-          </div>
-          <div class="blueprint-grid portfolio-blueprint">
-            <article class="blueprint-card sitemap-card">
-              <div class="card-topline">
-                <span>Conceptual site map</span>
-                <span class="card-index">A</span>
-              </div>
-              <div class="sitemap">
-                <div class="map-node map-home">Home <span>current page</span></div>
-                <div class="map-branches" aria-hidden="true"><i></i><i></i><i></i></div>
-                <div class="map-children">
-                  <div v-for="page in plannedPages.slice(1)" :key="page" class="map-node">
-                    {{ page }}
-                  </div>
-                </div>
-              </div>
-              <p class="card-footnote">Planned pages for future portfolio updates.</p>
-            </article>
-
-            <article class="blueprint-card layout-card">
-              <div class="card-topline">
-                <span>Home page layout</span>
-                <span class="card-index">B</span>
-              </div>
-              <div
-                class="layout-sketch"
-                aria-label="Wireframe showing navigation, introduction with portrait, about section, goals, and footer"
-              >
-                <div class="sketch-nav"><i></i><i></i><i></i></div>
-                <div class="sketch-hero">
-                  <div class="sketch-lines"><i></i><i></i><i></i><b></b></div>
-                  <div class="sketch-photo"></div>
-                </div>
-                <div class="sketch-cards"><i></i><i></i><i></i></div>
-                <div class="sketch-footer"></div>
-              </div>
-              <p class="card-footnote">Navigation → introduction → about → goals → site plan.</p>
-            </article>
-
-            <article class="blueprint-card palette-card">
-              <div class="card-topline">
-                <span>Color palette</span>
-                <span class="card-index">C</span>
-              </div>
-              <div class="swatches">
-                <div v-for="color in palette" :key="color.name" class="swatch">
-                  <span class="swatch-color" :class="color.className"></span>
-                  <span class="swatch-label"
-                    >{{ color.name }}<small>{{ color.value }}</small></span
-                  >
-                </div>
-              </div>
-              <p class="card-footnote">Calm, natural colors with a warm accent for contrast.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-section portfolio-container">
-        <div>
-          <p class="section-label"><span>04</span> What’s next</p>
-          <h2>Thanks for visiting.</h2>
-          <p>I’m excited to keep learning and share what I create along the way.</p>
-        </div>
-        <a class="contact-back-to-top" href="#home">Back to top ↑</a>
-      </section>
-    </main>
+    <RouterView />
 
     <footer class="portfolio-footer">
       <div class="portfolio-container">
@@ -1168,6 +992,10 @@ h1 span {
   color: var(--ink);
   background: var(--paper);
 }
+.portfolio-container {
+  width: min(1120px, calc(100% - 64px));
+  margin-inline: auto;
+}
 .portfolio-header {
   display: flex;
   width: min(1120px, calc(100% - 64px));
@@ -1206,6 +1034,9 @@ h1 span {
   font-weight: 600;
 }
 .portfolio-nav a:hover {
+  color: #182a2b;
+}
+.portfolio-nav a.is-active {
   color: #182a2b;
 }
 .portfolio-nav .nav-contact {
@@ -1384,6 +1215,15 @@ h1 span {
   font-family: var(--serif);
   font-weight: 400;
   letter-spacing: -0.035em;
+}
+.about-copy h1 {
+  max-width: 620px;
+  margin: 0 0 15px;
+  font-family: var(--serif);
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
 }
 .about-copy h2 {
   max-width: 620px;
@@ -1565,6 +1405,161 @@ h1 span {
   color: #344840;
   font-weight: 700;
 }
+.home-next-section {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 48px;
+  padding-block: 70px 78px;
+}
+.home-next-section > div {
+  max-width: 670px;
+}
+.home-next-section h2 {
+  margin: 18px 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 45px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+.home-next-section > div > p:last-child {
+  margin: 0;
+  color: #626d66;
+  font-size: 12px;
+  line-height: 1.85;
+}
+.home-next-section .contact-back-to-top span {
+  color: #d77d5d;
+}
+.portfolio-page {
+  min-height: calc(100vh - 144px);
+  padding-block: 66px 90px;
+}
+.portfolio-page-heading {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #deddd4;
+}
+.portfolio-page-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+}
+.portfolio-page-title h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+.portfolio-page-title p {
+  max-width: 580px;
+  margin: 13px 0 0;
+  color: #626d66;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.github-profile-link {
+  flex: 0 0 auto;
+  padding: 12px 15px;
+  border: 1px solid #bcc4b7;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.github-profile-link span {
+  margin-left: 9px;
+  color: #d77d5d;
+}
+.repository-status {
+  padding-block: 44px;
+  color: #626d66;
+  font-size: 13px;
+}
+.repository-error p {
+  margin-bottom: 14px;
+}
+.retry-button {
+  padding: 10px 14px;
+  border: 1px solid #bcc4b7;
+  border-radius: 3px;
+  color: #182a2b;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+}
+.retry-button:hover {
+  background: #ebe9e0;
+}
+.repository-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding-top: 27px;
+}
+.repository-card {
+  display: flex;
+  min-height: 215px;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid #d7d8cf;
+  background: #f8f6f0;
+}
+.repository-card-heading,
+.repository-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.repository-mark {
+  color: #829078;
+  font-size: 22px;
+}
+.repository-language {
+  color: #727b73;
+  font-size: 10px;
+}
+.repository-card h2 {
+  margin: 14px 0 8px;
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 400;
+}
+.repository-card h2 a:hover {
+  color: #718268;
+}
+.repository-card h2 a span {
+  color: #d77d5d;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+}
+.repository-description {
+  margin: 0 0 20px;
+  color: #626d66;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.repository-details {
+  margin-top: auto;
+  color: #727b73;
+  font-size: 9px;
+}
+.portfolio-nav a:focus-visible,
+.portfolio-wordmark:focus-visible,
+.portfolio-button:focus-visible,
+.portfolio-secondary-link:focus-visible,
+.github-profile-link:focus-visible,
+.repository-card a:focus-visible,
+.retry-button:focus-visible {
+  outline: 2px solid #d77d5d;
+  outline-offset: 3px;
+}
 
 @media (max-width: 850px) {
   .portfolio-hero-inner {
@@ -1576,6 +1571,13 @@ h1 span {
   }
   .portfolio-blueprint {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .portfolio-page-title {
+    align-items: start;
+    flex-direction: column;
+  }
+  .repository-grid {
+    grid-template-columns: 1fr;
   }
   .portfolio-blueprint .palette-card {
     grid-column: 1 / -1;
@@ -1597,16 +1599,10 @@ h1 span {
     height: 29px;
   }
   .portfolio-nav {
-    gap: 14px;
+    gap: 12px;
   }
   .portfolio-nav a {
     font-size: 9px;
-  }
-  .portfolio-nav a:nth-child(2) {
-    display: none;
-  }
-  .portfolio-nav .nav-contact {
-    padding: 8px 10px;
   }
   .portfolio-hero-inner {
     width: calc(100% - 40px);
@@ -1649,6 +1645,28 @@ h1 span {
   }
   .portfolio-container {
     width: calc(100% - 40px);
+  }
+  .home-next-section {
+    align-items: start;
+    flex-direction: column;
+    gap: 22px;
+    padding-block: 48px 54px;
+  }
+  .portfolio-page {
+    padding-block: 45px 60px;
+  }
+  .portfolio-page-title {
+    gap: 20px;
+  }
+  .portfolio-page-title h1 {
+    font-size: 42px;
+  }
+  .portfolio-page-title p {
+    font-size: 11px;
+  }
+  .repository-card {
+    min-height: 195px;
+    padding: 18px;
   }
   .about-section {
     padding-block: 48px 54px;

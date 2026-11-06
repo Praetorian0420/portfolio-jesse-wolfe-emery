@@ -1,43 +1,35 @@
-# wolfe-emery_jesse_portfolio
+# Jesse Wolfe-Emery Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A Vue 3 portfolio website with client-side navigation and a GitHub-powered project list.
 
-## Recommended IDE Setup
+## Pages
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- `/` — professional introduction
+- `/about` — background, career goals, and site design plan
+- `/portfolio` — public repositories loaded from the GitHub API
 
-## Recommended Browser Setup
+The repository page uses the public account `Praetorian0420`. Update `githubUsername` in
+`src/views/PortfolioPage.vue` if the profile changes.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Project setup
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Production build
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint
 
 ```sh
 npm run lint
