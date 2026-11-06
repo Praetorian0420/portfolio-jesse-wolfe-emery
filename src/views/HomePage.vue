@@ -21,7 +21,7 @@
           </div>
         </div>
         <figure class="portfolio-portrait">
-          <img src="/Jesse.jpg" alt="Professional portrait of Jesse Wolfe-Emery" />
+          <img src="/jesse.jpg" alt="Professional portrait of Jesse Wolfe-Emery" />
           <figcaption>
             <span>Jesse Wolfe-Emery</span><span>Future software developer</span>
           </figcaption>
